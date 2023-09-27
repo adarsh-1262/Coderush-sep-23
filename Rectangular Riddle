@@ -1,0 +1,35 @@
+// QUESTION
+
+// Rectangular Riddle (Public Contest: CodeRush September'23)
+
+#include <bits/stdc++.h> // header file includes every Standard library
+using namespace std;
+
+int main() {
+	// Your code here
+    int n;
+    cin>>n;
+    int common_x1=0;
+    int common_y1=0;
+    int common_x2=INT_MAX;
+    int common_y2=INT_MAX;
+    for(int i=0;i<n;i++){
+        int x1,y1,x2,y2;
+        cin>>x1>>y1>>x2>>y2;
+        common_x1= max(common_x1, x1);
+        common_y1= max(common_y1, y1);
+        common_x2 = min(common_x2, x2);
+        common_y2 = min(common_y2, y2);
+    }
+    int length,width,area;
+    if(common_x1 >= common_x2 || common_y1 >= common_y2){
+        cout<<"0"<<endl;
+    }
+    else{
+       length = common_x2 - common_x1;
+       width = common_y2 - common_y1;
+       area= length*width;
+       cout<<area<<endl;
+    }
+    return 0;
+}
